@@ -1,0 +1,29 @@
+<ion-view>
+	<ion-nav-title class="bar-stable title">
+		{{carro.nome}}
+	</ion-nav-title>
+
+	<ion-content>
+		<div class="card">
+			<div class="item item-divider">Ótima Escolha</div>
+			<div class="item item-text-wrap">{{carro.nome}}
+				<ul class="list">
+					<li class="item item-toggle" ng-repeat="item in items">
+						<h3><b>{{item.nome}} - {{item.preco | currency : 'R$ '}}</b></h3>
+						<label class="toggle toggle-positive">
+							<input type="checkbox" ng-model="isSelected" ng-click="selected(item, isSelected)">
+							<div class="track">
+								<div class="handle"></div>
+							</div>
+						</label>
+					</li>	
+				</ul>
+
+			</div>
+			<div class="item item-divider">{{carro.preco | currency : 'R$ '}}</div>
+		</div>
+
+		<a class="button button-positive button-full" href="#/finalizar-compra/{{carro}}">Finalizar</a>
+	</ion-content>
+
+</ion-view>
